@@ -1,4 +1,5 @@
 import React from "react"
+import '../styles/tailwind.css'
 import { Link } from 'gatsby'
 
 interface IProps {
