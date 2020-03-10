@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from 'gatsby'
 
-interface Props {
+interface IProps {
   children: Object | String
 }
 
-const Layout = (props: any) => {
+const Layout = (props: IProps) => {
   const { children } = props;
   return(
     <div>
