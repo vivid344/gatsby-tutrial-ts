@@ -13,11 +13,14 @@ module.exports = {
       options: {
         postCssPlugins: [
           require('tailwindcss'),
-          require('@fullhuman/postcss-purgecss')({
+          ...process.env.NODE_ENV === 'production'
+          ? [require('@fullhuman/postcss-purgecss')({
             content: [
               './src/**/*.tsx',
+              './src/**/*.js',
             ],
-          })
+          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []  // tailwindで使用されるクラス名を抽出する正規表現。
+          })]: []
         ],
       },
     },
